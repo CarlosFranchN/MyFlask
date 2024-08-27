@@ -1,4 +1,47 @@
-<!--
-    CRIAR UM HTML BASE! 
-    COM UM TEMA LEGAL PARA AS OUTRAS PAGINAS
--->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %}My Flask App{% endblock %}</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='base.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='reset.css') }}"/>
+    {% block head  %}
+    {% endblock  %}
+  </head>
+  <body>
+    <header class="header">
+      <nav class="nav_header">
+        <img
+          src="/static/imgs/download__10_-removebg-preview.png"
+          alt=""
+          class="img-logo"
+        />
+        <ul class="list_menu">
+          <li><a href="{{ url_for('login') }}">Login</a></li>
+          <li><a href="{{ url_for('register') }}">Register</a></li>
+          <li><a href="{{ url_for('dashboard') }}">Dashboard</a></li>
+        </ul>
+      </nav>
+    </header>
+    
+    <main>
+        
+      {% block content %}
+      <!-- Conteúdo específico de cada página vai aqui -->
+      {% endblock %}
+    </main>
+
+
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+  </body>
+<footer>
+<p>&copy; 2024 My Flask App. All rights reserved.</p>
+</footer>
+</html>

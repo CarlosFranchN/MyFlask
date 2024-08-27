@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block title %}Register{% endblock  %}
+
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='register.css') }}">
+{% endblock %}
+
+{% block content %}
+    <div class="registrer_box">
+        <h2 class="titulo_f">Registro</h2>
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <ul class="flashes">
+                    {% for category, message in messages %}
+                    <li class="{{ category }}">{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+
+
+        <form action="{{ url_for('register') }}" method="POST" class="myForm" id="myForm">
+            
+            <div class="info_div username_div">
+                <label for="username_f">Username</label>
+                <input type="text" name="username_f" id="username_f" required>
+            </div>
+            <div class="info_div password_div">
+                <label for="password_f">Password</label>
+                <input type="password" name="password_f" id="password_f" required>
+            </div>
+            <div class="info_div key_word_div">
+                <label for="key_word_f">Chave de Acesso</label>
+                <input type="number" name="key_word_f" id="key_word_f" required>
+            </div>
+            <input type="submit" value="Registrar" id="submit_f">
+        </form>
+    </div>
+
+{% endblock %}
+

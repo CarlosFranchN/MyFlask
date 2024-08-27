@@ -1,7 +1,7 @@
-
 .flashes {
     list-style: none;
     padding: 0;
+    
 }
 
 .flashes li.error {
@@ -9,5 +9,5 @@
     border: 1px solid red;
     padding: 10px;
     margin-bottom: 10px;
+    font-size: medium;
 }
-

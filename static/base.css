@@ -1,0 +1,84 @@
+@font-face {
+    font-family: 'she-ra';
+    src: url('/static/font/Shera-MqWe.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background: url("/static/imgs/download.gif") no-repeat fixed center;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    /* font-family: 'she-ra', sans-serif; */
+}
+
+
+
+.nav_header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: transparent;
+    padding: 1.2rem;
+    /* width: 100vw; */
+}
+
+.list_menu {
+    width: 100vw;
+    display: flex;
+    justify-content: flex-end;
+    gap: 2.5rem;
+
+}
+
+.list_menu li {
+    display: flex;
+    justify-content: center;
+    font-size: 2rem;
+
+    color: #ccc;
+
+}
+
+.list_menu li a {
+    text-decoration: none;
+    text-decoration-line: none;
+    text-transform: capitalize;
+    font-family: 'she-ra', sans-serif;
+}
+
+.list_menu li a:hover {
+    transform: scale(1.1);
+    transition: 0.3s;
+    color: #fff;
+}
+
+
+.img-logo {
+    width: 7vw;
+    transition: .4s ease-in-out;
+}
+
+.img-logo:hover {
+    transform: scale(1.1);
+}
+
+main {
+    flex: 1
+}
+
+footer {
+    background-color: #2d608b;
+    color: #fff;
+    text-align: center;
+    padding: 1rem;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
