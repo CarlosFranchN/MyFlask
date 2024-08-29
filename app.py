@@ -41,7 +41,7 @@ def register():
         user = User.query.filter_by(username=username).first()
 
         if key_word != magic_key_word:
-            flash("Palavra chave invalida","error")
+            flash("Palavra chave invalida", "error")
             return redirect(url_for("register"))
 
         if user:
@@ -58,7 +58,7 @@ def register():
 
         return redirect(url_for("login"))
 
-    return render_template("register.html")
+    return render_template("register2.html")
 
 
 @app.route("/")
@@ -74,8 +74,9 @@ def index():
 @app.route("/login", methods=["GET", "POST"])
 def login():
     if request.method == "POST":
-        username = request.form["username"]
-        password = request.form["password"]
+        username = request.form["username_f"]
+
+        password = request.form["password_f"]
 
         # Verificar se o usuário existe
         user = User.query.filter_by(username=username).first()
@@ -99,7 +100,7 @@ def dashboard():
         return redirect(url_for("login"))
 
     user = User.query.get(session["user_id"])
-    return render_template("dashboard.html", user=user)
+    return render_template("dashbord.html", user=user)
 
 
 @app.route("/logout")

@@ -1,0 +1,31 @@
+<div class="content">
+    <h2 class="titulo_f">{{ title }}</h2>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <ul class="flashes">
+                {% for category, message in messages %}
+                <li class="{{ category }}">{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+
+
+    <form action={{ form_action }} method="POST" class="myForm" id="myForm">
+        
+        <div class="info_div username_div">
+            <label for="username_f">Username</label>
+            <input type="text" name="username_f" id="username_f" required>
+        </div>
+        <div class="info_div password_div">
+            <label for="password_f">Password</label>
+            <input type="password" name="password_f" id="password_f" required>
+        </div>
+        {% if additional_fields %}
+            {{ additional_fields | safe }}
+        {% endif %}
+
+        <input type="submit" value={{ value_btn }} id="submit_f">
+    </form>
+</div>

@@ -1,34 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-</head>
-<link rel="stylesheet" href="/style/style.css">
-<body>
-    <div class="login_form" id="login_form">
-        <h2>Login</h2>
-        {% with messages = get_flashed_messages(with_categories=True) %}
-            {% if messages %}
-                <ul class="flashes">
-                    {% for category, message in messages %}
-                        <li class="{{ category }}">{{ message }}</li>
-                    {% endfor %}
-                </ul>
-            {% endif %}
-        {% endwith %}
-        <form id="form" action="" method="POST">
-            <label for="username">Username: </label>
-            <input type="text"  name="username" id="username_f" required>
+{% extends "base.html" %}
 
-            <label for="password">Password: </label>
-            <input type="password" id="password_f" name="password" required>
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='register.css') }}">
 
-            <input type="button" value="login">
-        
-        </form>
-        
-    </div>
-</body>
-</html>
+{% endblock  %}
+
+{% block content %}
+
+{% with title=Login, form_action=url_for('login'), value_btn = "Login" %}
+    {% include "form_content.html" %}
+{% endwith %}
+
+
+
+
+{% endblock  %}

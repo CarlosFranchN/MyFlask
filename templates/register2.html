@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='register.css') }}">
+{% endblock  %}
+
+{% block content %}
+    {% with additional_fields = '
+    <div class="info_div key_word_div">
+        <label for="key_word_f">Chave de Acesso</label>
+        <input type="number" name="key_word_f" id="key_word_f" required>
+    </div>' %}
+        {% with title="Registro",
+        form_action= url_for('register') ,
+        value_btn="Registrar",
+        additional_fields=additional_fields|safe %}
+    
+          {% include 'form_content.html' %}
+    
+        {% endwith %}
+        
+    {% endwith %}
+{% endblock %}
